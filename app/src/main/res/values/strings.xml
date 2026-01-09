@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MainApp</string>
+    <string name="sent_data">Sent Data</string>
+</resources>

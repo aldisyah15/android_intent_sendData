@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import main.User
 
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,12 +16,16 @@ class ResultActivity : AppCompatActivity() {
 
         val tvName = findViewById<TextView>(R.id.getName)
         val tvAge = findViewById<TextView>(R.id.getAge)
+        val tvEmail = findViewById<TextView>(R.id.getEmail)
+        val tvCity = findViewById<TextView>(R.id.getCity)
 
-        val name = intent.getStringExtra("EXTRA_NAME")
-        val age = intent.getIntExtra("EXTRA_AGE", 0)
+        val user = intent.getParcelableExtra<User>("EXTRA-USER", User::class.java)
 
-        tvName.text = "Nama: " + name
-        tvAge.text = "Umur: " + age
+
+        tvName.text = "Nama: " + user?.name
+        tvAge.text = "Umur: " + user?.age
+        tvEmail.text = "Email: " + user?.email
+        tvCity.text = "city: " + user?.city
     }
 }
 
